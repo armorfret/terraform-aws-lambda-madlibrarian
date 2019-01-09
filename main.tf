@@ -4,6 +4,8 @@ module "certificate" {
 }
 
 module "lambda" {
+  source = "github.com/akerl/terraform-aws-lambda"
+
   lambda-bucket  = "${var.lambda-bucket}"
   lambda-version = "${chomp(file("${path.module}/version"))}"
   function-name  = "madlibrarian_lambda_${var.data-bucket}"
