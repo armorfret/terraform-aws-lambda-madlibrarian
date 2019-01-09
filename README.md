@@ -9,4 +9,4 @@ This modules deploys [madlibrarian-lambda](https://github.com/akerl/madlibrarian
 
 # License
 
-terraform-aws-madlibrarian-lambda is released under the MIT License. See the bundled LICENSE file for details.
+terraform-aws-lambda-madlibrarian is released under the MIT License. See the bundled LICENSE file for details.
