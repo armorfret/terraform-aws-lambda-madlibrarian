@@ -1,5 +1,5 @@
 variable "version" {
-  type = string
+  type    = "string"
   default = "0.10.2"
 }
 
