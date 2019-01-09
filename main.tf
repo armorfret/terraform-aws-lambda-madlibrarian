@@ -59,7 +59,7 @@ resource "aws_api_gateway_integration" "integration" {
   http_method             = "${aws_api_gateway_method.method.http_method}"
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = "${aws_lambda_function.madlibrarian_lambda.invoke_arn}"
+  uri                     = "${module.lambda.invoke_arn}"
 }
 
 resource "aws_api_gateway_deployment" "deployment" {
