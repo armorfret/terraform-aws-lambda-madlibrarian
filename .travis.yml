@@ -1,0 +1,4 @@
+dist: trusty
+script: /bin/true
+notifications:
+  email: false
