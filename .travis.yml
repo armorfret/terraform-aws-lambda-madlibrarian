@@ -1,7 +1,13 @@
 dist: trusty
-script: "/bin/true"
+env:
+  global:
+  - TFBIN_DIR=$HOME/tfbin
+  - TERRAFORM_VERSION=0.11.12
+install:
+- "./scripts/download_terraform.sh $TERRAFORM_VERSION"
+script:
+- "~/tfbin/terraform fmt -write=false -diff=true -check"
 notifications:
   email: false
   slack:
-    rooms:
-      secure: FIj81JDS6JeLvouEY/SVuDG2uXI9Z45sJ4e9uhFsEtm25ZE/2uw5HK1rDf+SaOfv6ri9+VxSApB+PabfCdEioR7C7oxNZPpdyLAOVEnci8dws4S52a/hC/vqUia5ahhggVMwZ5Muw+bErZHn7Z0q60IV9aXYha7MptyW1nGfxDyhHcPsLmaDzx412+uu9pO33/FXlU3MWOPXjK+TNwtO3u/lXuqYi9fLvqR0yeC0HO9UzIHmkUER3Nd8bKUGaC4uCWrs6S4/si36IyYDCz62+nKzYseF2yYKoku4SI0ifkh/+6SUiJjZYhRPUFsMevYsMMCMSrgDWKhDuUsGeVGPlHEjdJF1bXdSD6yxDR64MyTXf3uyjqUdid/VAzRSdfxQIVK5MZI1tHFs5yjOtHpvZC4p4JOneRyikSbkerg6gpRr5k/8nN6CXcH5pw8RaG8ONPfVNXCsf+MngMR1i8NbiBTI+Ze6Q36baWz0sjw/+qmiKM0DOTbYJo0jh9rmuSCep1Hh/brkOzZNA+mKc0t1gm7Ulf79JNu0g+62NQhOi080i556oSc2ufjufg4mht8/yc0GHfPwg05TVKdt/Itq7O3CABddOiNvSe48QbF+Mrel17+B2n1UijkrB7RMRw9DUVKmg3ogsFt8qONJAs/RTPO52ySWVOzHpU0Krxb3kZ4=
+    secure: lBEawK0rhxIuo7F8YuJvpN350c5oBoOobKbLgFlZ3CJL84Fa3hSOsQTaOohSb9SffYyQWTCwXtAfE6QBAQ2CWR3gfssfb+FBHgsmRvd4e8xYifzOvow+95A2/Vj86sYG/zfp2e96QVkBdv3tOHHPwLWBUhf++BkH+xo8C0I0uq3+d7PQl4iisw7YSlVoAgG4s50F2kus7zF313iVMjY0TQa4y4mnZLg7RKjkt5Y6cx0ROk4RM4KwJ8nHyap0SOBq2GdZm882z7CCXSq/HkABxjbTobyVVEa+oxZD1q2t2+lVUfJrmNXjjj2wS+koZn1lmfxX3+FUx2Z7okClbpiQ/9IlWBTKRxHx87xnTIjayGf3+qnPILgmTGs88XlckjhQxTSEAQExDUfXMTboPyx6hzzfF0ol5VXpPh907HbUIGc2NGb8MphPV8KwpxTVKdi0GcdSna7J7H+lrPIoap9gvZ62p4Gk3Jthi+DI+HxW22aloYRHdH5K7fuxauaCUuCyXMLIYQVK6iPmwk3Q+WesVqJKUsrTeiKfnxT1Jx2E3Glq9OhLPhrvP4EsXl2J/MrsrbuFgrz78foEMJ154jbGWl+hmTbbDNuA0P74l+PdKqyzQqyF4T923UcG/il8eBcZO5xxJKcrm/W6B9VAiQSAhVo3hKxx9VhEkNfB6sDRYPM=
