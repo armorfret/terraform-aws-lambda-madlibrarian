@@ -8,8 +8,8 @@ module "apigw" {
   source  = "armorfret/apigw-lambda/aws"
   version = "0.0.1"
 
-  lambda_bucket  = "${var.lambda_bucket}"
-  lambda_version = "${var.version}"
+  source_bucket  = "${var.lambda_bucket}"
+  source_version = "${var.version}"
   function_name  = "madlibrarian_${var.data_bucket}"
 
   environment_variables = {
@@ -22,6 +22,8 @@ module "apigw" {
   }
 
   access_policy_document = "${data.aws_iam_policy_document.lambda_perms.json}"
+
+  hostname = "${var.hostname}"
 }
 
 module "publish_user" {
