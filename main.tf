@@ -29,15 +29,15 @@ module "apigw" {
 module "publish_user" {
   source         = "armorfret/s3-publish/aws"
   version        = "0.0.2"
-  logging-bucket = "${var.logging_bucket}"
-  publish-bucket = "${var.data_bucket}"
+  logging_bucket = "${var.logging_bucket}"
+  publish_bucket = "${var.data_bucket}"
 }
 
 module "config_user" {
   source         = "armorfret/s3-publish/aws"
   version        = "0.0.2"
-  logging-bucket = "${var.logging_bucket}"
-  publish-bucket = "${var.config_bucket}"
+  logging_bucket = "${var.logging_bucket}"
+  publish_bucket = "${var.config_bucket}"
 }
 
 data "aws_iam_policy_document" "lambda_perms" {
