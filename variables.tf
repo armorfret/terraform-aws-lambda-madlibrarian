@@ -1,7 +1,7 @@
 variable "version" {
   description = "Version of the Lambda to use"
   type        = "string"
-  default     = "v0.12.3"
+  default     = "v0.12.4"
 }
 
 variable "logging_bucket" {
