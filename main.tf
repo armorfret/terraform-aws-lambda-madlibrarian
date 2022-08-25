@@ -41,6 +41,7 @@ module "config_user" {
   version        = "0.2.4"
   logging_bucket = var.logging_bucket
   publish_bucket = var.config_bucket
+  count          = var.config_bucket == var.data_bucket ? 0 : 1
 }
 
 data "aws_iam_policy_document" "lambda_perms" {
@@ -50,12 +51,12 @@ data "aws_iam_policy_document" "lambda_perms" {
       "s3:GetObject",
     ]
 
-    resources = [
+    resources = distinct([
       "arn:aws:s3:::${var.data_bucket}/*",
       "arn:aws:s3:::${var.data_bucket}",
       "arn:aws:s3:::${var.config_bucket}/*",
       "arn:aws:s3:::${var.config_bucket}",
-    ]
+    ])
   }
 
   statement {
