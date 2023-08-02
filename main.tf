@@ -62,6 +62,15 @@ data "aws_iam_policy_document" "lambda_perms" {
   statement {
     actions = [
       "logs:CreateLogGroup",
+    ]
+
+    resources = [
+      "arn:aws:logs:*:*:log-group:/aws/lambda/madlibrarian_${var.data_bucket}",
+    ]
+  }
+
+  statement {
+    actions = [
       "logs:CreateLogStream",
       "logs:PutLogEvents",
     ]
